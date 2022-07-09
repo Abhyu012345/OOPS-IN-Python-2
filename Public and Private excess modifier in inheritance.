@@ -1,0 +1,45 @@
+class Specs:
+    def __init__(self,brand_name,shape,scratch_resistance):
+        # Public attribute
+        self.brand_name = brand_name
+        # Private attribute
+        self.__shape = shape
+        self.__scratch_resistance = scratch_resistance
+    
+    def __colouring(self,colour):
+        self.colour = colour
+        print('we want to choose sunglasses of',self.colour,"only")
+    
+class sunglasses(Specs):
+    def __init__(self,brand_name,shape,scratch_resistance,coating):
+        
+        '''the init function we have to call again as the child init function
+           ovwerwrites it.'''
+        # Specs.__init__(self,brand_name,shape,scratch_resistance)
+        # super().__init__(brand_name,shape,scratch_resistance)
+        Specs.brand_name = brand_name
+        Specs.__shape = shape                               # you have to use __ here to again take value and to ccess here
+        Specs.__scratch_resistance = scratch_resistance
+        self.coating = coating
+        
+    
+    def printing(self):
+        print("I have bought sunglasses of",Specs.brand_name,"having shape",Specs.__shape,"and coating",self.coating)
+        
+    def running_private_attribute(self,giving_colour):
+        self.giving_colour = giving_colour
+        print(Specs.__shape, end = " ")
+        print(Specs.__scratch_resistance)
+        self._Specs__colouring(giving_colour)
+obj = sunglasses("Fastrack","Oval",True,True)
+obj.printing()
+
+print(obj.brand_name)
+''' Now let's Think that how we can call the private attribute as we cant call them simply
+                    like a public attribute. 
+        So we have to make a function instance method inside the child class 
+        Where we can acess the vlaue and than we will access that method like we normally do.'''
+# obj.running_private_attribute()
+
+''' If we have a private method in the parent class than we would have done like this.'''
+obj.running_private_attribute("Dark Brown")
