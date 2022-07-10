@@ -2,3 +2,6 @@ Protected members are simply like othe rmenbers but it is used when we don't wan
 It can be used for both attributes and methods. And these will be the thing which can be used internally but has no work outside.
 
 For using it we have to use single_underscore.
+
+Let's See an Example - 
+
