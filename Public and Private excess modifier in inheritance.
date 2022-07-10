@@ -16,7 +16,7 @@ class sunglasses(Specs):
         '''the init function we have to call again as the child init function
            ovwerwrites it.'''
         # Specs.__init__(self,brand_name,shape,scratch_resistance)
-        # super().__init__(brand_name,shape,scratch_resistance)
+        # super(sunglasses, self).__init__(brand_name,shape,scratch_resistance)
         Specs.brand_name = brand_name
         Specs.__shape = shape                               # you have to use __ here to again take value and to ccess here
         Specs.__scratch_resistance = scratch_resistance
