@@ -5,3 +5,34 @@ For using it we have to use single_underscore.
 
 Let's See an Example - 
 
+class India:
+    # Class Attributes protected
+    _Total_states = "29"
+    def __init__(self, state_name, population):
+        self.state_name = state_name
+        
+        # protected attribute
+        self._population = population
+    
+    def printing(self):
+        print(self.state_name,"is having population of",self._population)
+        
+class State(India):
+    
+    def __init__(self,state_name, population, desert, rain_fall):
+        # India.__init__(self,state_name,population,desert,rain_fall)
+        super(State, self).__init__(state_name,population)
+        
+        # protected attribute
+        self._desert = desert
+        # private
+        self.__rain_fall = rain_fall
+        
+    def _last(self):
+        print("The desert of",self.state_name,"having population",self._population,"is",self._desert)
+    
+    
+obj = State("Rajasthan",12000000,"Very hot",False)
+obj._last()
+obj.printing()  
+print(obj._population)
