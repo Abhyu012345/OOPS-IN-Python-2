@@ -1,0 +1,47 @@
+Poly - Morphism is nothing but a simply overiding a method, which means that we have to call a same method inside a child class,
+which we have called in the parent calss and then we will be ablke to see that we are not able to call the the parent mehtod by the object of the base class.
+Hence we have to call the object for the parent class and then have to proceed.
+
+SImply stating that when we are using a same function or method for different instances/objects.
+
+Let.s see an example.
+
+class Specs:
+    def __init__(self,brand_name,shape,scratch_resistance):
+        # Public attribute
+        self.brand_name = brand_name
+        # Private attribute
+        self.__shape = shape
+        self.__scratch_resistance = scratch_resistance
+    
+    def __colouring(self,colour):
+        self.colour = colour
+        print('we want to choose sunglasses of',self.colour,"only")
+        
+    def printing(self, budget):
+        self.budget = budget
+        print("Parent")
+        print ("Budget decide for each vheicle is",budget)
+    
+class sunglasses(Specs):
+    def __init__(self,brand_name,shape,scratch_resistance,coating):
+        
+        '''the init function we have to call again as the child init function
+           ovwerwrites it.'''
+        # Specs.__init__(self,brand_name,shape,scratch_resistance)
+        super().__init__(brand_name,shape,scratch_resistance)
+        
+    def prin(self):
+        print("I have bought sunglasses of",Specs.brand_name,"having shape",Specs.__shape,"and coating",self.coating)
+        
+    def printing(self, budget):
+        Specs.budget = budget
+        print("Child")
+        print ("Budget decide for",self.brand_name,"is",self.budget)
+obj = sunglasses("Fastrack","Oval",True,True)
+# now as we are able to see that we have created object for just the child class
+obj.printing(12000)
+obj._Specs__colouring("Pink")
+
+obj_parent = Specs("Fastrack","Oval",True)
+obj_parent.printing(13000)
